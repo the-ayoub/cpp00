@@ -6,9 +6,15 @@
 class PhoneBook
 {
 	private :
-		Contact _contacts[8];
-		int	_contactCount;
+		Contact contacts[8];
+		int	contactcount;
+		int currentindex;
+		std::string formatfield(std::string text);
 	public :
-		phonebook();
+		PhoneBook();
+		~PhoneBook();
+		void addcontact(Contact _newcontact);
+		void searchcontact();
+		void displaydetails(int index);
 };
 #endif

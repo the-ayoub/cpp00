@@ -40,3 +40,7 @@ std::string Contact::getdarkestsecret()
 {
 	return(darkestsecret);
 }
+
+Contact::Contact() {}
+
+Contact::~Contact() {}

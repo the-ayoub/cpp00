@@ -12,6 +12,8 @@ class Contact
 		std::string phonenumber;
 		std::string darkestsecret;
 	public :
+		Contact();
+		~Contact();
 		void setfirstname(std::string _firstname);
 		void setlastname(std::string _lastname);
 		void setnickname(std::string _nickname);
