@@ -1,14 +1,14 @@
 NAME			= PhoneBook
 
 CC				= c++
-CFLAGS			= -Wall -Wextra -Werror -std=c++98 -MMD
+CFLAGS			= -Wall -Wextra -Werror  -MMD -std=c++98
 DEPFLAGS		= -MMD -MF $(DEPDIR)/$*.d
 
 SRCDIR			= src
 OBJDIR			= obj
 DEPDIR			= deps
 
-SRCS = megaphone.cpp
+SRCS = phonebook.cpp contact.cpp main.cpp
 
 OBJS			= $(SRCS:%.cpp=$(OBJDIR)/%.o)
 DEPS			= $(OBJS:%.o=$(DEPDIR)/%.d)
