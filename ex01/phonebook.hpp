@@ -17,7 +17,5 @@ class PhoneBook
 		void addcontact(Contact _newcontact);
 		void searchcontact();
 		void displaydetails(int _index);
-		bool isnumber(const std::string str);
-		int ft_atoi(const std::string str);
 };
 #endif

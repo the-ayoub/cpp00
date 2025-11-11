@@ -2,7 +2,41 @@
 #include "contact.hpp"
 #include <iostream>
 #include <string>
-#include <string>
+
+
+bool isnumber(const std::string str)
+{
+	if(str == "\0")
+		return(false);
+	else
+	{
+		for(size_t i=0; i<str.length();i++)
+		{
+			if(!isdigit(str[i]))
+				return(false);
+		}
+		return(true);
+	}
+}
+int ft_atoi(const std::string str)
+{
+    int sign = 1;
+    int result = 0;
+    size_t i = 0;
+
+    if (i < str.length() && (str[i] == '-' || str[i] == '+'))
+    {
+        if (str[i] == '-')
+            sign = -1;
+        i++;
+    }
+    while (i < str.length() && std::isdigit(str[i]))
+    {
+        result = result * 10 + (str[i] - '0');
+        i++;
+    }
+    return (result * sign);
+}
 int main()
 {
 	PhoneBook phonebook;
@@ -16,44 +50,77 @@ int main()
 		{
 			if(line == "ADD")
 			{
-				Contact newcontact;
-				std::cout <<"firstname: ";
-				std::getline(std::cin,line);
-				newcontact.setfirstname(line);
-				line = "\0";
-				std::cout <<"lastname: ";
-				std::getline(std::cin,line);
-				newcontact.setlastname(line);
-				line = "\0";
-				std::cout <<"nickname: ";
-				std::getline(std::cin,line);
-				newcontact.setnickname(line);
-				line = "\0";
-				std::cout <<"phonenumber: ";
-				std::getline(std::cin,line);
-				newcontact.setphonenumber(line);
-				line = "\0";
-				std::cout <<"darkestsecret: ";
-				std::getline(std::cin,line);
-				newcontact.setdarkestsecret(line);
-				line = "\0";
-				phonebook.addcontact(newcontact);
+				while(true)
+				{
+					Contact newcontact;
+					while(true)
+					{
+						std::cout <<"firstname: ";
+						std::getline(std::cin,line);
+						if(line != "\0")
+						{
+							newcontact.setfirstname(line);
+							break;
+						}
+					}
+					while(true)
+					{
+						std::cout <<"lastname: ";
+						std::getline(std::cin,line);
+						if(line != "\0")
+						{
+							newcontact.setlastname(line);
+							break;
+						}
+					}
+					while(true)
+					{	
+						std::cout <<"nickname: ";
+						std::getline(std::cin,line);
+						if(line != "\0")
+						{
+							newcontact.setnickname(line);
+							break;					
+						}
+					}
+					while(true)
+					{
+						std::cout <<"phonenumber: ";
+						std::getline(std::cin,line);
+						if(line != "\0")
+						{
+							newcontact.setphonenumber(line);
+							break;
+						}
+					}
+					while(true)
+					{
+						std::cout <<"darkestsecret: ";
+						std::getline(std::cin,line);
+						if(line != "\0")
+						{
+							newcontact.setdarkestsecret(line);
+							break;
+						}
+					}
+					phonebook.addcontact(newcontact);
+					break;
+				}
 			}
 			else if(line == "SEARCH")
 			{
-				line = "\0";
 				phonebook.searchcontact();
 				std::cout << "Enter the index of the contact you want to display: ";
 				while (true)
 				{
     				std::getline(std::cin, line);
-    				if (!phonebook.isnumber(line))
+    				if (!isnumber(line))
     				{
         				std::cout << "Invalid input." << std::endl;
         				std::cout << "Enter the index of the contact you want to display: ";
         				continue;
     				}
-    				index = phonebook.ft_atoi(line);
+    				index = ft_atoi(line);
     				if (index >= phonebook.getcontactcount() || index < 0)
     				{
         				std::cout << "Invalid index." << std::endl;

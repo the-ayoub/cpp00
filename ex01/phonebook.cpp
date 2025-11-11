@@ -43,41 +43,8 @@ void PhoneBook::displaydetails(int _index)
 	std::cout<< "phonenumber: " <<contacts[_index].getphonenumber() << std::endl;
 	std::cout<< "darkestsecret: " <<contacts[_index].getdarkestsecret() << std::endl;
 }
-bool PhoneBook::isnumber(const std::string str)
-{
-	if(str == "\0")
-		return(false);
-	else
-	{
-		for(size_t i=0; i<str.length();i++)
-		{
-			if(!isdigit(str[i]))
-				return(false);
-		}
-		return(true);
-	}
-}
 int PhoneBook::getcontactcount()
 {
 	return(contactcount);
-}
-int PhoneBook::ft_atoi(const std::string str)
-{
-    int sign = 1;
-    int result = 0;
-    size_t i = 0;
-
-    if (i < str.length() && (str[i] == '-' || str[i] == '+'))
-    {
-        if (str[i] == '-')
-            sign = -1;
-        i++;
-    }
-    while (i < str.length() && std::isdigit(str[i]))
-    {
-        result = result * 10 + (str[i] - '0');
-        i++;
-    }
-    return (result * sign);
 }
 PhoneBook::~PhoneBook() {}
