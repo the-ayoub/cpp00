@@ -8,9 +8,9 @@ SRCDIR			= src
 OBJDIR			= obj
 DEPDIR			= deps
 
-SRCS = phonebook.cpp contact.cpp main.cpp
+SRCS = Account.cpp  tests.cpp
 
-HEADERS = Phonebook.hpp Contact.hpp
+HEADERS = Account.hpp
 
 OBJS			= $(SRCS:%.cpp=$(OBJDIR)/%.o)
 DEPS			= $(OBJS:%.o=$(DEPDIR)/%.d)
