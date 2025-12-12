@@ -1,4 +1,4 @@
-NAME			= PhoneBook
+NAME			= banksters
 
 CC				= c++
 CFLAGS			= -Wall -Wextra -Werror  -std=c++98
@@ -19,7 +19,7 @@ all: dir $(NAME)
 
 $(NAME): Makefile $(OBJS)
 	@$(CC) $(CFLAGS) $(OBJS) -o $@
-	@echo "\033[1;33mCPP00 EX01 [✔]\033[0m"
+	@echo "\033[1;33mCPP00 EX02 [✔]\033[0m"
 
 
 $(OBJDIR)/%.o: %.cpp $(HEADERS)
